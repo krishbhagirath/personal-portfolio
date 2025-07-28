@@ -7,7 +7,7 @@ const app = express(); // create Express application
 const resend = new Resend(process.env.RESEND_API_KEY); // initialize Resend with API key from environment variables
 
 app.use(express.json()); // set the middleware to parse and process JSON requests (so Express can process JSON data sent from contact form submission)
-app.use(express.static(__dirname)); 
+app.use(express.static(path.join(__dirname, '../')));
 
 app.post('/api/contact', async (req, res) => { // handle POST requests to /api/contact endpoint
   const { name, email, subject, message, number } = req.body; // req.body contains the data sent from the contact form in the given variables (name, email, subject, message, number)
