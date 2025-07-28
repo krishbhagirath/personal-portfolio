@@ -1,3 +1,6 @@
+const cors = require('cors');
+app.use(cors());
+
 const express = require('express'); // set up Express.js server
 const { Resend } = require('resend'); // import Resend for email sending (to use Resend API)
 require('dotenv').config(); // load environment variables from .env file
