@@ -55,7 +55,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     const message = form.message.value;
 
     try {
-        const response = await fetch("https://personal-portfolio-stlv.onrender.com/api/contact", { // sends a POST request to the server (your form to the backend using fetch API)
+        const response = await fetch("portfolio-backend-neon-two.vercel.app/api/contact", { // sends a POST request to the server (your form to the backend using fetch API)
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ name, email, subject, message })
