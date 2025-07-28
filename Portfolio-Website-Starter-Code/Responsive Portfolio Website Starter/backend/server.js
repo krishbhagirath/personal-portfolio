@@ -1,6 +1,3 @@
-const cors = require('cors');
-app.use(cors());
-
 const express = require('express'); // set up Express.js server
 const { Resend } = require('resend'); // import Resend for email sending (to use Resend API)
 require('dotenv').config(); // load environment variables from .env file
@@ -8,9 +5,11 @@ const path = require('path'); // import path for serving static files
 
 const app = express(); // create Express application
 const resend = new Resend(process.env.RESEND_API_KEY); // initialize Resend with API key from environment variables
+const cors = require('cors');
 
 app.use(express.json()); // set the middleware to parse and process JSON requests (so Express can process JSON data sent from contact form submission)
 app.use(express.static(path.join(__dirname, '../')));
+app.use(cors());
 
 app.post('/api/contact', async (req, res) => { // handle POST requests to /api/contact endpoint
   const { name, email, subject, message, number } = req.body; // req.body contains the data sent from the contact form in the given variables (name, email, subject, message, number)
